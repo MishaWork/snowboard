@@ -7,10 +7,14 @@
      {
      txCreateWindow (800, 600);
 
-     HDC Jopa = txLoadImage ("RFRFRF.bmp");
+     HDC Jopa = txLoadImage ("Панелька.bmp");
      if (Jopa == NULL) txMessageBox ("Ты плоская баба");
 
-     AlphaBlend (txDC(), 0, 0, 300, 300, Jopa, 0, 0, 266, 193, 1);
+     txBegin ();
+
+     AlphaBlend (txDC(), 0, 0, 60, 45, Jopa, 0, 0, 600, 450, 1);
+
+     txEnd ();
 
      return 0;
      }
