@@ -1,6 +1,14 @@
 
 #include "TXLib.h"
 
+struct Plane
+    {
+    int x, y;
+
+    int v;
+    };
+
+
 void Plane ();
 
 int main()
@@ -17,8 +25,31 @@ void Plane ()
     HDC Plane = txLoadImage ("АЛАХ.bmp");
     if (Plane == NULL) txMessageBox ("КАКАЕМ ДРУЖНО");
 
+    HDC BackG = txLoadImage ("Адфхзз.bmp");
+    if (BackG == NULL) txMessageBox ("Я есть фиргумулька");
+
+    int BackGX = txGetExtentX (BackG) / 10;
+
+    struct Plane Pl {400, 100, 0};
+
+    int VOLX = 0;
+
     while (1 < 2)
         {
-        txAlphaBlend (txDC (), 0, 0, 0, 0, Plane);
+
+        txBitBlt (txDC(), 0, 0, BackGX, 0, BackG, VOLX);
+
+        txAlphaBlend (txDC (), Pl.x, Pl.y - Pl.v, 0, 0, Plane);
+
+        VOLX += 10;
+
+        Pl.y += 10;
+
+       // PlaneX += 5;
+
+        txSleep (50);
+
+        if (GetAsyncKeyState (VK_SPACE)) Pl.v = Pl.v + 20;
+
         }
     }

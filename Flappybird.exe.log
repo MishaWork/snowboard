@@ -1,0 +1,312 @@
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe, файл: C:\Users\Misha\Desktop\TX\TXLib.h, строка: 12541, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 166, Date: 2020-04-30 18:19:23 +0400], Instance: 0x0050F2F4 (32-bit), Flags: CMdRe0, Thread: 0x6D8 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004229DC in \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe: txBitBlt() at C:/Users/Misha/Desktop/TX/TXLib.h (12541)
+
+# 1 0x0042C6A4 in \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe: Plane() at //vmware-host/Shared Folders/Windows 7/FlappyBird-master/Flappybird.cpp (29):
+
+     27:         txAlphaBlend (txDC (), 0, 0, 0, 0, Plane);
+     28: 
+=>   29:         txBitBlt (txDC(), 0, 0, 0, 0, BackG, BackGX);
+     30:         }
+     31:     }
+
+# 2 0x0042C479 in \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe: main() at //vmware-host/Shared Folders/Windows 7/FlappyBird-master/Flappybird.cpp (10):
+
+      8:     txCreateWindow (1024, 576);
+      9: 
+=>   10:     Plane ();
+     11: 
+     12:     return 0;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int) at C:\Users\Misha\Desktop\TX\TXLib.h (12541):
+
+  12539:     {
+  12540: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>12541: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  12542: 
+  12543: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in void Plane() at \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.cpp (29):
+
+     27:         txAlphaBlend (txDC (), 0, 0, 0, 0, Plane);
+     28: 
+=>   29:         txBitBlt (txDC(), 0, 0, 0, 0, BackG, BackGX);
+     30:         }
+     31:     }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 166, Date: 2020-04-30 18:19:23 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Misha\Desktop\TX\TXLib.h
+Compiled:	Jul  2 2020 21:10:44, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Jul 02 2020 21:10:48
+
+Run file:	\\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe
+Directory:	\\vmware-host\Shared Folders\Windows 7\FlappyBird-master
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe, файл: C:\Users\Misha\Desktop\TX\TXLib.h, строка: 9139, функция: bool {anonymous}::TX::_txCanvas_OnDESTROY(HWND),
+
+Сообщение: Cannot lock GDI to free resources
+
+#1: TXLib [Ver: 00173a, Rev: 166, Date: 2020-04-30 18:19:23 +0400], Instance: 0x0050F2F4 (32-bit), Flags: CMdRE0, Thread: 0xB60 (Canvas), errno: 34 (Result too large). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0040C1B4 in \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe: _txCanvas_OnDESTROY() at C:/Users/Misha/Desktop/TX/TXLib.h (9139)
+# 1 0x0040B7E8 in \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe: _txCanvas_WndProc() at C:/Users/Misha/Desktop/TX/TXLib.h (9059)
+# 2 0x76CAC4E7 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+# 3 0x76CAC5E7 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+# 4 0x76CA4F0E in C:\Windows\system32\USER32.dll: GetScrollBarInfo()
+# 5 0x76CA4F7D in C:\Windows\system32\USER32.dll: GetScrollBarInfo()
+# 6 0x76FD6FEE in C:\Windows\SYSTEM32\ntdll.dll: KiUserCallbackDispatcher()
+# 7 0x76C9BB13 in C:\Windows\system32\USER32.dll: CharLowerW()
+# 8 0x76C9BB70 in C:\Windows\system32\USER32.dll: DefWindowProcA()
+# 9 0x0040BAF3 in \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe: _txCanvas_WndProc() at C:/Users/Misha/Desktop/TX/TXLib.h (9095)
+#10 0x76CAC4E7 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+#11 0x76CAC5E7 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+#12 0x76CA4F0E in C:\Windows\system32\USER32.dll: GetScrollBarInfo()
+#13 0x76CA4F7D in C:\Windows\system32\USER32.dll: GetScrollBarInfo()
+#14 0x76FD6FEE in C:\Windows\SYSTEM32\ntdll.dll: KiUserCallbackDispatcher()
+#15 0x76C9BB13 in C:\Windows\system32\USER32.dll: CharLowerW()
+#16 0x73C85EEF in C:\Windows\system32\uxtheme.dll: Ordinal45()
+#17 0x73C9D128 in C:\Windows\system32\uxtheme.dll: SetWindowThemeAttribute()
+#19 0x73C85DDA in C:\Windows\system32\uxtheme.dll: Ordinal45()
+#20 0x76C9C6B7 in C:\Windows\system32\USER32.dll: EnumDesktopsW()
+#21 0x0040BAF3 in \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe: _txCanvas_WndProc() at C:/Users/Misha/Desktop/TX/TXLib.h (9095)
+#22 0x76CAC4E7 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+#23 0x76CA5F9F in C:\Windows\system32\USER32.dll: SetPropW()
+#24 0x76CA4F0E in C:\Windows\system32\USER32.dll: GetScrollBarInfo()
+#25 0x76CA4F7D in C:\Windows\system32\USER32.dll: GetScrollBarInfo()
+#26 0x76FD6FEE in C:\Windows\SYSTEM32\ntdll.dll: KiUserCallbackDispatcher()
+#27 0x76C9BB13 in C:\Windows\system32\USER32.dll: CharLowerW()
+#28 0x73C85EEF in C:\Windows\system32\uxtheme.dll: Ordinal45()
+#29 0x73C9D175 in C:\Windows\system32\uxtheme.dll: SetWindowThemeAttribute()
+#31 0x73C85DDA in C:\Windows\system32\uxtheme.dll: Ordinal45()
+#32 0x76C9C6B7 in C:\Windows\system32\USER32.dll: EnumDesktopsW()
+#33 0x0040BAF3 in \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe: _txCanvas_WndProc() at C:/Users/Misha/Desktop/TX/TXLib.h (9095)
+#34 0x76CAC4E7 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+#35 0x76CAC5E7 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+#36 0x76CACC19 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+#37 0x76CA2E41 in C:\Windows\system32\USER32.dll: DispatchMessageA()
+#38 0x00409FDA in \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe: _txCanvas_ThreadProc() at C:/Users/Misha/Desktop/TX/TXLib.h (8850)
+#39 0x76BF1287 in C:\Windows\system32\msvcrt.dll: itow_s()
+#40 0x76BF1328 in C:\Windows\system32\msvcrt.dll: endthreadex()
+#41 0x76903C45 in C:\Windows\system32\kernel32.dll: BaseThreadInitThunk()
+#42 0x76FF37F5 in C:\Windows\SYSTEM32\ntdll.dll: RtlInitializeExceptionChain()
+#43 0x76FF37C8 in C:\Windows\SYSTEM32\ntdll.dll: RtlInitializeExceptionChain()
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::_txCanvas_OnDESTROY(HWND) at C:\Users\Misha\Desktop\TX\TXLib.h (9139):
+
+   9137: $   bool locked = false;
+   9138: $   _txWaitFor ((locked = txLock (false), locked), _TX_TIMEOUT);
+=> 9139: $   if (!locked) TX_DEBUG_ERROR ("Cannot lock GDI to free resources");
+   9140: 
+   9141:     // Освобождаем пользовательские ресурсы
+
+# 1 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Misha\Desktop\TX\TXLib.h (9059):
+
+   9057: 
+   9058:         case WM_CLOSE:          {$ if (_txCanvas_OnCLOSE      (wnd))  break;   else return 0; }
+=> 9059:         case WM_DESTROY:        {$     _txCanvas_OnDESTROY    (wnd);                return 0; }
+   9060: 
+   9061:         case WM_ERASEBKGND:     {$ if (!bkErased) { bkErased = true;  break; } else return 1; }
+
+# 2 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Misha\Desktop\TX\TXLib.h (9095):
+
+   9093:         }
+   9094: 
+=> 9095: $   return DefWindowProc (wnd, msg, wpar, lpar);
+   9096:     }
+   9097: 
+
+# 3 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Misha\Desktop\TX\TXLib.h (9095):
+
+   9093:         }
+   9094: 
+=> 9095: $   return DefWindowProc (wnd, msg, wpar, lpar);
+   9096:     }
+   9097: 
+
+# 4 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Misha\Desktop\TX\TXLib.h (9095):
+
+   9093:         }
+   9094: 
+=> 9095: $   return DefWindowProc (wnd, msg, wpar, lpar);
+   9096:     }
+   9097: 
+
+# 5 in unsigned int {anonymous}::TX::_txCanvas_ThreadProc(void*) at C:\Users\Misha\Desktop\TX\TXLib.h (8850):
+
+   8848: 
+   8849: $       TranslateMessage (&msg);
+=> 8850: $       DispatchMessage  (&msg);
+   8851: 
+   8852: $       Sleep (0);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 166, Date: 2020-04-30 18:19:23 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Misha\Desktop\TX\TXLib.h
+Compiled:	Jul  2 2020 21:11:14, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Jul 02 2020 21:11:18
+
+Run file:	\\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe
+Directory:	\\vmware-host\Shared Folders\Windows 7\FlappyBird-master
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe, файл: C:\Users\Misha\Desktop\TX\TXLib.h, строка: 9139, функция: bool {anonymous}::TX::_txCanvas_OnDESTROY(HWND),
+
+Сообщение: Cannot lock GDI to free resources
+
+#1: TXLib [Ver: 00173a, Rev: 166, Date: 2020-04-30 18:19:23 +0400], Instance: 0x0050F2F4 (32-bit), Flags: CMdRE0, Thread: 0x354 (Canvas), errno: 34 (Result too large). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0040C1B4 in \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe: _txCanvas_OnDESTROY() at C:/Users/Misha/Desktop/TX/TXLib.h (9139)
+# 1 0x0040B7E8 in \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe: _txCanvas_WndProc() at C:/Users/Misha/Desktop/TX/TXLib.h (9059)
+# 2 0x76CAC4E7 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+# 3 0x76CAC5E7 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+# 4 0x76CA4F0E in C:\Windows\system32\USER32.dll: GetScrollBarInfo()
+# 5 0x76CA4F7D in C:\Windows\system32\USER32.dll: GetScrollBarInfo()
+# 6 0x76FD6FEE in C:\Windows\SYSTEM32\ntdll.dll: KiUserCallbackDispatcher()
+# 7 0x76C9BB13 in C:\Windows\system32\USER32.dll: CharLowerW()
+# 8 0x76C9BB70 in C:\Windows\system32\USER32.dll: DefWindowProcA()
+# 9 0x0040BAF3 in \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe: _txCanvas_WndProc() at C:/Users/Misha/Desktop/TX/TXLib.h (9095)
+#10 0x76CAC4E7 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+#11 0x76CAC5E7 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+#12 0x76CA4F0E in C:\Windows\system32\USER32.dll: GetScrollBarInfo()
+#13 0x76CA4F7D in C:\Windows\system32\USER32.dll: GetScrollBarInfo()
+#14 0x76FD6FEE in C:\Windows\SYSTEM32\ntdll.dll: KiUserCallbackDispatcher()
+#15 0x76C9BB13 in C:\Windows\system32\USER32.dll: CharLowerW()
+#16 0x73C85EEF in C:\Windows\system32\uxtheme.dll: Ordinal45()
+#17 0x73C9D128 in C:\Windows\system32\uxtheme.dll: SetWindowThemeAttribute()
+#19 0x73C85DDA in C:\Windows\system32\uxtheme.dll: Ordinal45()
+#20 0x76C9C6B7 in C:\Windows\system32\USER32.dll: EnumDesktopsW()
+#21 0x0040BAF3 in \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe: _txCanvas_WndProc() at C:/Users/Misha/Desktop/TX/TXLib.h (9095)
+#22 0x76CAC4E7 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+#23 0x76CA5F9F in C:\Windows\system32\USER32.dll: SetPropW()
+#24 0x76CA4F0E in C:\Windows\system32\USER32.dll: GetScrollBarInfo()
+#25 0x76CA4F7D in C:\Windows\system32\USER32.dll: GetScrollBarInfo()
+#26 0x76FD6FEE in C:\Windows\SYSTEM32\ntdll.dll: KiUserCallbackDispatcher()
+#27 0x76C9BB13 in C:\Windows\system32\USER32.dll: CharLowerW()
+#28 0x73C85EEF in C:\Windows\system32\uxtheme.dll: Ordinal45()
+#29 0x73C9D175 in C:\Windows\system32\uxtheme.dll: SetWindowThemeAttribute()
+#31 0x73C85DDA in C:\Windows\system32\uxtheme.dll: Ordinal45()
+#32 0x76C9C6B7 in C:\Windows\system32\USER32.dll: EnumDesktopsW()
+#33 0x0040BAF3 in \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe: _txCanvas_WndProc() at C:/Users/Misha/Desktop/TX/TXLib.h (9095)
+#34 0x76CAC4E7 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+#35 0x76CAC5E7 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+#36 0x76CACC19 in C:\Windows\system32\USER32.dll: gapfnScSendMessage()
+#37 0x76CA2E41 in C:\Windows\system32\USER32.dll: DispatchMessageA()
+#38 0x00409FDA in \\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe: _txCanvas_ThreadProc() at C:/Users/Misha/Desktop/TX/TXLib.h (8850)
+#39 0x76BF1287 in C:\Windows\system32\msvcrt.dll: itow_s()
+#40 0x76BF1328 in C:\Windows\system32\msvcrt.dll: endthreadex()
+#41 0x76903C45 in C:\Windows\system32\kernel32.dll: BaseThreadInitThunk()
+#42 0x76FF37F5 in C:\Windows\SYSTEM32\ntdll.dll: RtlInitializeExceptionChain()
+#43 0x76FF37C8 in C:\Windows\SYSTEM32\ntdll.dll: RtlInitializeExceptionChain()
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::_txCanvas_OnDESTROY(HWND) at C:\Users\Misha\Desktop\TX\TXLib.h (9139):
+
+   9137: $   bool locked = false;
+   9138: $   _txWaitFor ((locked = txLock (false), locked), _TX_TIMEOUT);
+=> 9139: $   if (!locked) TX_DEBUG_ERROR ("Cannot lock GDI to free resources");
+   9140: 
+   9141:     // Освобождаем пользовательские ресурсы
+
+# 1 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Misha\Desktop\TX\TXLib.h (9059):
+
+   9057: 
+   9058:         case WM_CLOSE:          {$ if (_txCanvas_OnCLOSE      (wnd))  break;   else return 0; }
+=> 9059:         case WM_DESTROY:        {$     _txCanvas_OnDESTROY    (wnd);                return 0; }
+   9060: 
+   9061:         case WM_ERASEBKGND:     {$ if (!bkErased) { bkErased = true;  break; } else return 1; }
+
+# 2 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Misha\Desktop\TX\TXLib.h (9095):
+
+   9093:         }
+   9094: 
+=> 9095: $   return DefWindowProc (wnd, msg, wpar, lpar);
+   9096:     }
+   9097: 
+
+# 3 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Misha\Desktop\TX\TXLib.h (9095):
+
+   9093:         }
+   9094: 
+=> 9095: $   return DefWindowProc (wnd, msg, wpar, lpar);
+   9096:     }
+   9097: 
+
+# 4 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Misha\Desktop\TX\TXLib.h (9095):
+
+   9093:         }
+   9094: 
+=> 9095: $   return DefWindowProc (wnd, msg, wpar, lpar);
+   9096:     }
+   9097: 
+
+# 5 in unsigned int {anonymous}::TX::_txCanvas_ThreadProc(void*) at C:\Users\Misha\Desktop\TX\TXLib.h (8850):
+
+   8848: 
+   8849: $       TranslateMessage (&msg);
+=> 8850: $       DispatchMessage  (&msg);
+   8851: 
+   8852: $       Sleep (0);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 166, Date: 2020-04-30 18:19:23 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Misha\Desktop\TX\TXLib.h
+Compiled:	Jul  2 2020 21:13:28, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Jul 02 2020 21:13:32
+
+Run file:	\\vmware-host\Shared Folders\Windows 7\FlappyBird-master\Flappybird.exe
+Directory:	\\vmware-host\Shared Folders\Windows 7\FlappyBird-master
+
+--------------------------------------------------
